@@ -1,0 +1,16 @@
+#Exemple de requête Teradata en SQL permettant de récupérer les âges des clients actifs.
+
+#On ne prend que les deux colonnes qui nous intéressent dans la table : l'ID du client et son âge.
+SELECT IDNT_COMP_SERV, AGE_UTL FROM ANALYSTE_PRD.RS_CCO_FD_CC_PARC 
+
+#La ligne suivante permet de sélectionner les clients actifs.
+WHERE DAT_PHTO = (SELECT Max(DAT_PHTO) FROM ANALYSTE_PRD.RS_CCO_FD_CC_PARC)
+
+#On ne prend que les clients dont l'âge est renseigné pour préselectionner les données.
+AND AGE_UTL IS NOT NULL
+
+#Cette variable indique si le client est un particulier '1' ou un professionnel '2'.
+AND COD_TYPE_PERS = '1'
+
+#On s'assure que les clients ont bien été facturés sur les deux derniers mois.
+AND DAT_DERN_FACT >= Add_Months(Current_Date, -2)
