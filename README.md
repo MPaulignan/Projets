@@ -1,4 +1,4 @@
-# StageBytel
+# Projet Chatbot
 
 Ce dossier comprends les livrables réalisés pendant mon stage chez Bouygues Telecom, ainsi que quelques applications des outils utilisés dans le cadre de la mission Chatbot présentée sur mon site:
 https://mpaulignan.github.io/
